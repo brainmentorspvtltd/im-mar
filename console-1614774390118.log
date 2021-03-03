@@ -1,0 +1,14 @@
+var arr = [];
+undefined
+window;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+window.arr;
+[]
+function show(){}
+undefined
+window.show
+ƒ show(){}
+arr;
+[]
+arr.sort
+ƒ sort() { [native code] }

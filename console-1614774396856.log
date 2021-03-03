@@ -1,0 +1,635 @@
+show();
+function show(){
+console.log('I am Show ');
+}
+VM99:3 I am Show 
+undefined
+window;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+window.show();
+VM99:3 I am Show 
+undefined
+show();// window.show();
+VM99:3 I am Show 
+undefined
+add();
+var add = function(){
+    console.log("I am add ");
+}
+VM313:1 Uncaught TypeError: add is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM313:1
+var add;// undefined
+add = function(){
+    console.log("I am add ");
+}
+add();
+VM347:3 I am add 
+undefined
+typeof add;
+"function"
+window.add;
+ƒ (){
+    console.log("I am add ");
+}
+typeof show;
+"function"
+function Calc(){
+
+// add, sub are the local variables
+var add = function(x,y){
+    return x + y;
+}
+var sub = function(x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var e = Calc();
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ (x,y)1: ƒ (x,y)length: 2__proto__: Array(0)
+e[0];
+ƒ (x,y){
+    return x + y;
+}
+e[0](10,20);
+30
+e[1](10,100);
+-90
+Calc()[0](10,20);
+30
+function Calc(){
+
+// add, sub are the local variables
+var add = function(x,y){
+    return x + y;
+}
+var sub = function(x,y){
+    return x - y;
+}
+return {add, sub};
+}
+var e = Calc();
+undefined
+e;
+{add: ƒ, sub: ƒ}
+e.add(100,200);
+300
+e["add"];
+ƒ (x,y){
+    return x + y;
+}
+e["add"](10,20);
+30
+e["sub"](10,20);
+-10
+var e2 = {1:2,3:4,"one":100};
+undefined
+e2.one
+100
+e2.1;
+VM1062:1 Uncaught SyntaxError: Unexpected number
+e2[1];
+2
+e2[3];
+4
+e2["one"];
+100
+var e2 = {1:2,3:4,"one":100,"a b":999};
+undefined
+e2.a b;
+VM1193:1 Uncaught SyntaxError: Unexpected identifier
+e2["a b"];
+999
+function Calc(z){
+
+// add, sub are the local variables
+var add = function(x,y){
+    return x + y + z;
+}
+var sub = function(x,y){
+    return x - y - z;
+}
+return {add, sub};
+}
+var e = Calc(10);
+e.add(1,2);
+13
+e.sub(1,2,10);
+-11
+e;
+{add: ƒ, sub: ƒ}add: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1313:4[[Scopes]]: Scopes[2]0: Closure (Calc) {z: 10}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}sub: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "sub"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1313:7[[Scopes]]: Scopes[2]0: Closure (Calc) {z: 10}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}__proto__: Object
+var w1 = 1000;
+function scope(){
+console.log(w1);
+var w1 = 2000;
+if(w1>100){
+let w1 = 90;
+console.log(w1);
+}
+console.log(w1);
+}
+undefined
+scope();
+VM1599:3 undefined
+VM1599:7 90
+VM1599:9 2000
+undefined
+var w1 = 1000;
+function scope(){
+console.log(w1);
+var w1 = 2000;
+if(w1>100){
+let w2 = 90;
+console.log(w1);
+}
+console.log(w1);
+}
+undefined
+scope();
+VM1638:3 undefined
+VM1638:7 2000
+VM1638:9 2000
+undefined
+var w1 = 1000;
+function scope(){
+console.log(w1);
+//var w1 = 2000;
+if(w1>100){
+let w2 = 90;
+console.log(w1);
+}
+console.log(w1);
+}
+undefined
+scope();
+VM1657:3 1000
+VM1657:7 1000
+VM1657:9 1000
+undefined
+//var w1 = 1000;
+function scope(){
+console.log(w1);
+//var w1 = 2000;
+if(w1>100){
+let w2 = 90;
+console.log(w1);
+}
+console.log(w1);
+}
+undefined
+scope();
+VM1670:3 1000
+VM1670:7 1000
+VM1670:9 1000
+undefined
+window.w1;
+1000
+//var w1 = 1000;
+function scope(){
+console.log(w1);
+//var w1 = 2000;
+if(w1>100){
+let w2 = 90;
+console.log(w1);
+}
+console.log(w1);
+}
+undefined
+function init(){
+var count= 0;
+return function (){
+++count;
+return count;
+}
+}
+undefined
+var fn = init();
+undefined
+fn();
+1
+fn();
+2
+fn();
+3
+fn();
+4
+fn;
+ƒ (){
+++count;
+return count;
+}
+console.dir(fn);
+VM1998:1 ƒ anonymous()arguments: nullcaller: nulllength: 0name: ""prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1876:3[[Scopes]]: Scopes[2]0: Closure (init) {count: 4}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+fn();
+5
+console.dir(fn);
+VM2023:1 ƒ anonymous()arguments: nullcaller: nulllength: 0name: ""prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1876:3[[Scopes]]: Scopes[2]0: Closure (init)count: 51: Global {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+var fn = init();
+undefined
+fn();
+1
+fn();
+2
+fn();
+3
+var fn2 = (function (){
+var count= 0;
+return function (){
+++count;
+return count;
+}
+})();
+undefined
+console.dir(fn2);
+VM2144:1 ƒ anonymous()arguments: nullcaller: nulllength: 0name: ""prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2103:3[[Scopes]]: Scopes[2]0: Closure {count: 0}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+fn2();
+1
+fn2();
+2
+fn2();
+3
+fn2();
+4
+fn2();
+5
+fn2();
+6
+fn2();
+7
+function show(){
+
+for(let i= 1; i<=10; i++){
+console.log(i);
+}
+
+}
+undefined
+show();
+VM2329:4 1
+VM2329:4 2
+VM2329:4 3
+VM2329:4 4
+VM2329:4 5
+VM2329:4 6
+VM2329:4 7
+VM2329:4 8
+VM2329:4 9
+VM2329:4 10
+undefined
+function show(){
+console.log(i);
+for(var i= 1; i<=10; i++){
+console.log(i);
+}
+console.log(i);
+
+}
+undefined
+show();
+VM2405:2 undefined
+VM2405:4 1
+VM2405:4 2
+VM2405:4 3
+VM2405:4 4
+VM2405:4 5
+VM2405:4 6
+VM2405:4 7
+VM2405:4 8
+VM2405:4 9
+VM2405:4 10
+VM2405:6 11
+undefined
+function show(){
+console.log(i);
+(function(){
+for(var i= 1; i<=10; i++){
+console.log(i);
+}
+})();
+console.log(i);
+
+}
+undefined
+show();
+VM2470:2 Uncaught ReferenceError: i is not defined
+    at show (<anonymous>:2:13)
+    at <anonymous>:1:1
+show @ VM2470:2
+(anonymous) @ VM2486:1
+function show(){
+//console.log(i);
+(function(){ // var i;
+for(var i= 1; i<=10; i++){
+console.log(i);
+}
+})();
+console.log(i);
+
+}
+undefined
+show();
+VM2502:5 1
+VM2502:5 2
+VM2502:5 3
+VM2502:5 4
+VM2502:5 5
+VM2502:5 6
+VM2502:5 7
+VM2502:5 8
+VM2502:5 9
+VM2502:5 10
+VM2502:8 Uncaught ReferenceError: i is not defined
+    at show (<anonymous>:8:13)
+    at <anonymous>:1:1
+show @ VM2502:8
+(anonymous) @ VM2517:1
+try{
+ww++;
+}
+catch(ex){
+console.log('Error', ex);
+}
+console.log(ex);
+VM2665:5 Error ReferenceError: ww is not defined
+    at <anonymous>:2:1
+VM2665:7 Uncaught ReferenceError: ex is not defined
+    at <anonymous>:7:13
+(anonymous) @ VM2665:7
+function Calc(){
+
+// add, sub are the local variables
+var add = function(x,y){
+    return x + y;
+}
+var sub = function(x,y){
+    return x - y;
+}
+return {add, sub};
+}
+var e = Calc();
+undefined
+function Calc(z){
+
+// add, sub are the local variables
+var add = function(x,y){
+    return x + y + z;
+}
+var sub = function(x,y){
+    return x - y - z;
+}
+return {add, sub};
+}
+var e = Calc(10);
+undefined
+e;
+{add: ƒ, sub: ƒ}add: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2809:4[[Scopes]]: Scopes[2]sub: ƒ (x,y)__proto__: Object
+function Calc(){
+
+// add, sub are the local variables
+var add = function(x,y){
+    return x + y;
+}
+var sub = function(x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var e = Calc();
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2833:4[[Scopes]]: Scopes[1]1: ƒ (x,y)length: 2__proto__: Array(0)
+function Calc(){
+
+// add, sub are the local variables
+var add = function addition(x,y){
+    return x + y;
+}
+var sub = function subtraction(x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var e = Calc();
+undefined
+e;
+(2) [ƒ, ƒ]0: ƒ addition(x,y)1: ƒ subtraction(x,y)length: 2__proto__: Array(0)
+e[0](10,20);
+30
+e[0];
+ƒ addition(x,y){
+    return x + y;
+}
+e[0].name;
+"addition"
+function Calc(){
+
+// add, sub are the local variables
+var add = function (x,y){
+    return x + y;
+}
+var sub = function (x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var e = Calc();
+undefined
+e[0];
+ƒ (x,y){
+    return x + y;
+}
+e[0].name;
+"add"
+function Calc(){
+
+// add, sub are the local variables
+var add = function addition(x,y){
+    return x + y;
+}
+var sub = function subtraction(x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var e = Calc();
+undefined
+var add = (x,y)=>x+y;
+/*var add = function(x,y){
+return x + y;
+}*/
+undefined
+add(10,20);
+30
+var add = (x,y)=>{
+console.log(x,y);
+return x+y;
+}
+/*var add = function(x,y){
+return x + y;
+}*/
+undefined
+add(100,200);
+VM3296:2 100 200
+300
+var show = x=>x * 100;
+undefined
+show(10);
+1000
+var show = ()=>1000;
+undefined
+show();
+1000
+show = 1000;
+1000
+show();
+VM3539:1 Uncaught TypeError: show is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM3539:1
+const disp = ()=>10;
+undefined
+typeof disp;
+"function"
+disp = 1;
+VM3625:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:6
+(anonymous) @ VM3625:1
+const MAX = 100;
+undefined
+MAX++;
+VM3707:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:4
+(anonymous) @ VM3707:1
+MAX = 200;
+VM3730:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:5
+(anonymous) @ VM3730:1
+const arr = [10,20,30,40,50];
+undefined
+arr = [];
+VM3835:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:5
+(anonymous) @ VM3835:1
+arr[0];
+10
+arr[0]++;
+10
+arr
+(5) [11, 20, 30, 40, 50]
+const obj = {id:1001, name:'Amit'};
+undefined
+obj.name = "Amit Srivastava";
+"Amit Srivastava"
+obj;
+{id: 1001, name: "Amit Srivastava"}
+obj = {};
+VM4056:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:5
+(anonymous) @ VM4056:1
+var a ;
+undefined
+console.log(a);
+VM4122:1 undefined
+undefined
+console.log(bbbb);
+VM4168:1 Uncaught ReferenceError: bbbb is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM4168:1
+var d = 200;
+function show(){
+// var d; // undefined
+console.log(d); // undefined
+var d = 100; // d = 100;
+console.log(d); //100
+if(d>10){
+let d = 500;
+console.log(d); // 500
+}
+console.log(d); // 100
+}
+undefined
+show();
+VM4395:4 undefined
+VM4395:6 100
+VM4395:9 500
+VM4395:11 100
+undefined
+var d = 200;
+function show(){
+// var d; // undefined
+console.log(d); // undefined
+var d = 100; // d = 100;
+console.log(d); //100
+if(d>10){
+//let d = 500;
+console.log(d); // 100
+}
+console.log(d); // 100
+}
+undefined
+show();
+VM4425:4 undefined
+VM4425:6 100
+VM4425:9 100
+VM4425:11 100
+undefined
+var d = 200;
+function show(){
+// var d; // undefined
+console.log(d); // undefined
+//var d = 100; // d = 100;
+console.log(d); //100
+if(d>10){
+//let d = 500;
+console.log(d); // 100
+}
+console.log(d); // 100
+}
+undefined
+show();
+VM4438:4 200
+VM4438:6 200
+VM4438:9 200
+VM4438:11 200
+undefined
+//var d1 = 200;
+function show(){
+// var d; // undefined
+console.log(d1); // undefined
+//var d = 100; // d = 100;
+console.log(d); //100
+if(d1>10){
+//let d = 500;
+console.log(d1); // 100
+}
+console.log(d1); // 100
+}
+undefined
+show();
+VM4472:4 Uncaught ReferenceError: d1 is not defined
+    at show (<anonymous>:4:13)
+    at <anonymous>:1:1
+show @ VM4472:4
+(anonymous) @ VM4492:1
+var d = 100;
+undefined
+typeof d;
+"number"
+d();
+VM4561:1 Uncaught TypeError: d is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM4561:1
+var ddd = null;
+undefined
+typeof ddd;
+"object"
+ddd.aa
+VM4623:1 Uncaught TypeError: Cannot read property 'aa' of null
+    at <anonymous>:1:5
+(anonymous) @ VM4623:1
+(function(){})();
+undefined

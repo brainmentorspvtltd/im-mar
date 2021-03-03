@@ -1,0 +1,24 @@
+window.w1;
+undefined
+function scope(){
+console.log(w1);
+//var w1 = 2000;
+if(w1>100){
+let w2 = 90;
+console.log(w1);
+}
+console.log(w1);
+}
+undefined
+scope();
+VM52:2 Uncaught ReferenceError: w1 is not defined
+    at scope (<anonymous>:2:13)
+    at <anonymous>:1:1
+scope @ VM52:2
+(anonymous) @ VM81:1
+var arr = [10,20];
+undefined
+arr();
+VM145:1 Uncaught TypeError: arr is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM145:1
