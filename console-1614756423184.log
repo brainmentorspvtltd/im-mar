@@ -1,0 +1,329 @@
+var a= 100;
+undefined
+typeof a;
+"number"
+a = 1000.20;
+1000.2
+typeof a;
+"number"
+a = 1000000;
+1000000
+typeof a;
+"number"
+a= 1000/0;
+Infinity
+typeof a;
+"number"
+a;
+Infinity
+isFinite(a);
+false
+isFinite(a)?a:0;
+0
+a = 100 / "one";
+NaN
+a;
+NaN
+typeof a;
+"number"
+isNaN(a);
+true
+isNaN(a)?0:a
+0
+100 + 100
+200
+"100"+100
+"100100"
+"Amit"+ " Srivastava"
+"Amit Srivastava"
+"Amit"- " Srivastava"
+NaN
+a = "100";
+"100"
+var b = 100;
+undefined
+a + b
+"100100"
+parseInt(a) + b
+200
+a = "100.20";
+"100.20"
+parseInt(a) + b
+200
+parseFloat(a) + b
+200.2
+a = Number.MAX_SAFE_INTEGER;
+9007199254740991
+++a;
+9007199254740992
+++a;
+9007199254740992
+++a;
+9007199254740992
+typeof a;
+"number"
+a = 9007199254740992n;
+9007199254740992n
+typeof a;
+"bigint"
+a + 54545435435435345345435435n
+54545435444442544600176427n
+a + BigInt("5435345345532432234324234")
+5435345354539631489065226n
+typeof BigInt;
+"function"
+var c = 'Hello';
+undefined
+typeof c;
+"string"
+c = "Hello";
+"Hello"
+typeof c;
+"string"
+c = `fhjdhgjfhgfkjhgjkfhgjkhfg
+ghfdjkghfdkghfdjkg
+hgkjdfhghjfdgjkfhgjkfhgkfhdjkghfjk`;
+"fhjdhgjfhgfkjhgjkfhgjkhfg
+ghfdjkghfdkghfdjkg
+hgkjdfhghjfdgjkfhgjkfhgkfhdjkghfjk"
+c;
+"fhjdhgjfhgfkjhgjkfhgjkhfg
+ghfdjkghfdkghfdjkg
+hgkjdfhghjfdgjkfhgjkfhgkfhdjkghfjk"
+typeof c;
+"string"
+a= 100;
+100
+b = 200;
+200
+console.log("A is "+a+" B is "+b+" C is "+(a+b));
+VM1880:1 A is 100 B is 200 C is 300
+undefined
+console.log(`A is ${a} B is ${b}  C is ${a+b}`);
+VM1997:1 A is 100 B is 200  C is 300
+undefined
+var d= true;
+undefined
+typeof d;
+"boolean"
+d= false;
+false
+typeof d;
+"boolean"
+true + true;
+2
+true - false;
+1
+1000 + true + true;
+1002
+var ff ;
+undefined
+typeof ff;
+"undefined"
+ff;
+undefined
+var arr = [100,200,300];
+undefined
+arr.length;
+3
+arr;
+(3) [100, 200, 300]
+arr instanceof Array;
+true
+arr = null;
+null
+arr;
+null
+arr.length;
+VM2465:1 Uncaught TypeError: Cannot read property 'length' of null
+    at <anonymous>:1:5
+(anonymous) @ VM2465:1
+arr = [10,20,30];
+(3) [10, 20, 30]
+typeof arr;
+"object"
+arr;
+(3) [10, 20, 30]
+arr = null;
+null
+typeof arr;
+"object"
+var f ;
+undefined
+typeof f;
+"undefined"
+100 + undefined;
+NaN
+100 + null;
+100
+null + null;
+0
+var arr = [10,20,30];
+undefined
+var obj = {};
+undefined
+obj;
+{}
+typeof obj;
+"object"
+typeof arr;
+"object"
+arr instanceof Array;
+true
+obj instanceof Array;
+false
+obj instanceof Window;
+false
+obj instanceof Object;
+true
+arr instanceof Object;
+true
+typeof Object;
+"function"
+var obj = {id:1001, name:'Ram'};
+undefined
+obj;
+{id: 1001, name: "Ram"}
+obj.id;
+1001
+var f = function(){
+console.log("I am a function ");
+}
+undefined
+typeof f;
+"function"
+f();
+VM3232:2 I am a function 
+undefined
+var name = "Amit";
+undefined
+typeof name;
+"string"
+name.toUpperCase();
+"AMIT"
+name;
+"Amit"
+var arr = [1,9,2,5];
+undefined
+arr.sort();
+(4) [1, 2, 5, 9]
+arr;
+(4) [1, 2, 5, 9]
+var price = 10000;
+undefined
+price.toLocaleString('hi-IN');
+"10,000"
+price.toLocaleString('fr-FR');
+"10 000"
+var price = 10000.20;
+undefined
+price.toLocaleString('hi-IN');
+"10,000.2"
+price.toLocaleString('fr-FR');
+"10 000,2"
+price;
+10000.2
+var obj = {id:1001, name:'Ram',salary:9999};
+undefined
+var obj2 = obj;
+undefined
+obj;
+{id: 1001, name: "Ram", salary: 9999}
+obj2;
+{id: 1001, name: "Ram", salary: 9999}
+obj == obj2;
+true
+{}=={}
+false
+[10,20] ==[10,20];
+false
+obj2.salary = 65465;
+65465
+obj2;
+{id: 1001, name: "Ram", salary: 65465}
+objl
+VM3948:1 Uncaught ReferenceError: objl is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM3948:1
+obj;
+{id: 1001, name: "Ram", salary: 65465}
+obj;
+{id: 1001, name: "Ram", salary: 65465}
+obj2;
+{id: 1001, name: "Ram", salary: 65465}
+var obj3 = {...obj};
+undefined
+obj3;
+{id: 1001, name: "Ram", salary: 65465}
+obj;
+{id: 1001, name: "Ram", salary: 65465}
+obj3== obj;
+false
+obj == obj2;
+true
+obj3.salary == 4354;
+false
+obj;
+{id: 1001, name: "Ram", salary: 65465}
+obj3;
+{id: 1001, name: "Ram", salary: 65465}
+var ar = [1,20,3];
+undefined
+typeof ar;
+"object"
+ar.length;
+3
+ar.push(1000);
+4
+ar;
+(4) [1, 20, 3, 1000]
+ar.pop();
+1000
+ar;
+(3) [1, 20, 3]
+var price = 4343;
+undefined
+price.toLocaleString('hi-IN');
+"4,343"
+var myName = "Amit";
+undefined
+myName.toUpperCase();
+"AMIT"
+var e = myName.toUpperCase();
+undefined
+typeof e;
+"string"
+typeof price.toLocaleString('hi-IN');
+"string"
+typeof ar;
+"object"
+var e = new String("Hello");
+undefined
+e;
+String {"Hello"}
+myName;
+"Amit"
+typeof myName;
+"string"
+typeof e;
+"object"
+e instanceof String;
+true
+price;
+4343
+typeof price;
+"number"
+var p = new Number(1000);
+undefined
+p;
+Number {1000}
+typeof p;
+"object"
+p instanceof Number;
+true
+price instanceof Number;
+false
+typeof Number;
+"function"
+typeof String;
+"function"

@@ -1,0 +1,135 @@
+function show(){
+console.log("I am Show ");
+}
+undefined
+show();
+VM73:2 I am Show 
+undefined
+function add(){
+    console.log("Add Call ");
+}
+undefined
+add();
+VM171:2 Add Call 
+undefined
+add(1,20);
+VM171:2 Add Call 
+undefined
+add([1,2],"asasdfsf",10);
+VM171:2 Add Call 
+undefined
+console.dir(add);
+VM331:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM171:1[[Scopes]]: Scopes[1]
+undefined
+function add(){
+    console.log("Add Call ",arguments.length);
+}
+undefined
+add([1,2],"asasdfsf",10);
+VM394:2 Add Call  3
+undefined
+add(1,20);
+VM394:2 Add Call  2
+undefined
+add();
+VM394:2 Add Call  0
+undefined
+function add(){
+    //console.log("Add Call ",arguments.length);
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+    sum+=arguments[i];
+}
+return sum;
+}
+undefined
+add();
+0
+add(1,2);
+3
+add(1,2,3,4,5);
+15
+function add(){
+    //console.log("Add Call ",arguments.length);
+console.log(arguments instanceof Array);
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+    sum+=arguments[i];
+}
+return sum;
+}
+undefined
+add(1,2,3,4,5);
+VM724:3 false
+15
+add(1,"2",3,4,5);
+VM724:3 false
+"12345"
+function add(){
+    //console.log("Add Call ",arguments.length);
+console.log(arguments instanceof Array);
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+    sum+=parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(1,"2",3,4,5);
+VM786:3 false
+15
+parseInt('four');
+NaN
+NaN + 3
+NaN
+add(1,"2","three",4,5);
+VM786:3 false
+NaN
+function add(){
+    //console.log("Add Call ",arguments.length);
+console.log(arguments instanceof Array);
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+    sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(1,"2","three",4,5);
+VM968:3 false
+12
+function add(){
+    //console.log("Add Call ",arguments.length);
+//console.log(arguments instanceof Array);
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+    sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(1,"2","three",4,5);
+12
+function four(){
+return 4;
+}
+undefined
+add(1,"2","three",four,5);
+8
+parseInt(four);
+NaN
+function add(){
+    //console.log("Add Call ",arguments.length);
+//console.log(arguments instanceof Array);
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+    if(typeof arguments[i]=="function"){
+        arguments[i] = arguments[i]();
+}
+    sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(1,"2","three",four,5);
+12

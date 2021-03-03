@@ -1,0 +1,40 @@
+var a ;
+undefined
+a;
+undefined
+typeof a;
+"undefined"
+a=100;
+100
+typeof a;
+"number"
+a="Amit";
+"Amit"
+typeof a;
+"string"
+a=true;
+true
+typeof a;
+"boolean"
+a = [];
+[]
+typeof a;
+"object"
+a = function(){}
+ƒ (){}
+typeof a;
+"function"
+a = [10,20,30,40];
+(4) [10, 20, 30, 40]
+a[0];
+10
+a[2];
+30
+a;
+(4) [10, 20, 30, 40]
+typeof a;
+"object"
+a instanceof Array;
+true
+typeof Array;
+"function"
