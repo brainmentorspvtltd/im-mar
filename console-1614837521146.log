@@ -1,0 +1,278 @@
+var prices = [10,20,30,40,50,10,20];
+let sum = 0;
+for(let i = 0; i<prices.length; i++){
+    sum+=prices[i];
+}
+console.log(sum);
+VM252:6 180
+undefined
+window;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+this;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+window == this;
+true
+function show(){
+console.log('I am this ',this);
+}
+undefined
+show(); // window.show();
+VM406:2 I am this  Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+var z = 100;
+var m = 10;
+function add(x,y){
+    return x + y + z + m;
+}
+undefined
+add(10,20);
+140
+z = -100;
+-100
+add(10,20);
+-60
+var z = 100;
+var m = 10;
+function add(x,y){
+    return x + y ;
+}
+undefined
+add(10,20);
+30
+add(10,20);
+30
+const adder = (x,y)=>x+y;
+undefined
+prices;
+(7) [10, 20, 30, 40, 50, 10, 20]
+for(let i = 0; i<prices.length; i++){
+    console.log(prices[i]);
+}
+VM844:2 10
+VM844:2 20
+VM844:2 30
+VM844:2 40
+VM844:2 50
+VM844:2 10
+VM844:2 20
+undefined
+function printIt(element){
+    console.log('Element is ',element);
+}
+prices.forEach(printIt);
+VM1024:2 Element is  10
+VM1024:2 Element is  20
+VM1024:2 Element is  30
+VM1024:2 Element is  40
+VM1024:2 Element is  50
+VM1024:2 Element is  10
+VM1024:2 Element is  20
+undefined
+prices.forEach((element)=>console.log(element));
+VM1222:1 10
+VM1222:1 20
+VM1222:1 30
+VM1222:1 40
+VM1222:1 50
+VM1222:1 10
+VM1222:1 20
+undefined
+function forEach(lambdaFn){
+let n = 10;
+for(let i = 1; i<=n; i++){
+console.log(lambdaFn(i));
+}
+}
+function cube(element){
+    return element  ** 3;
+}
+forEach(cube);
+
+
+
+
+VM1503:4 1
+VM1503:4 8
+VM1503:4 27
+VM1503:4 64
+VM1503:4 125
+VM1503:4 216
+VM1503:4 343
+VM1503:4 512
+VM1503:4 729
+VM1503:4 1000
+undefined
+forEach((element)=>element**3);
+VM1503:4 1
+VM1503:4 8
+VM1503:4 27
+VM1503:4 64
+VM1503:4 125
+VM1503:4 216
+VM1503:4 343
+VM1503:4 512
+VM1503:4 729
+VM1503:4 1000
+undefined
+forEach((element)=>element**2);
+VM1503:4 1
+VM1503:4 4
+VM1503:4 9
+VM1503:4 16
+VM1503:4 25
+VM1503:4 36
+VM1503:4 49
+VM1503:4 64
+VM1503:4 81
+VM1503:4 100
+undefined
+prices;
+(7) [10, 20, 30, 40, 50, 10, 20]0: 101: 202: 303: 404: 505: 106: 20length: 7__proto__: Array(0)
+prices.find((element)=>element==30);
+30
+prices.find((element)=>element==300);
+undefined
+prices.findIndex((element)=>element==300);
+-1
+prices.findIndex((element)=>element==30);
+2
+prices.findIndex((element)=>element==10);
+0
+prices.find((element)=>element==10);
+10
+prices.filter(element=>element==10);
+(2) [10, 10]
+prices;
+(7) [10, 20, 30, 40, 50, 10, 20]
+prices.filter(element=>element>10);
+(5) [20, 30, 40, 50, 20]
+prices.push(1000);
+8
+prices;
+(8) [10, 20, 30, 40, 50, 10, 20, 1000]
+prices.filter(element=>element>10).length;
+6
+var c =prices.filter(element=>true);
+undefined
+c;
+(8) [10, 20, 30, 40, 50, 10, 20, 1000]
+c[0]=100;
+100
+c;
+(8) [100, 20, 30, 40, 50, 10, 20, 1000]
+prices;
+(8) [10, 20, 30, 40, 50, 10, 20, 1000]
+prices.splice(0);
+(8) [10, 20, 30, 40, 50, 10, 20, 1000]
+prices;
+[]
+var prices = [10,20,30,40,50,10,20,10];
+
+undefined
+prices.splice(0,1);
+[10]
+prices;
+(7) [20, 30, 40, 50, 10, 20, 10]
+var prices = [10,20,30,40,50,10,20,10];
+
+undefined
+prices = prices.filter(price=>price!=10);
+(5) [20, 30, 40, 50, 20]
+prices;
+(5) [20, 30, 40, 50, 20]
+prices;
+(5) [20, 30, 40, 50, 20]
+var prices = [10,20,30,40,50,10,20,10];
+
+undefined
+var price = 100000;
+undefined
+var price = 100000.898;
+undefined
+price.toLocaleString('hi-IN');
+"1,00,000.898"
+price.toLocaleString('fr-FR');
+"100 000,898"
+var price = [3003.20,9090.23,54545.10,56456.44];
+undefined
+var prices = [3003.20,9090.23,54545.10,56456.44];
+undefined
+var formattedPrices = prices.map(price=>price.toLocaleString('hi-IN'));
+undefined
+formattedPrices;
+(4) ["3,003.2", "9,090.23", "54,545.1", "56,456.44"]
+prices;
+(4) [3003.2, 9090.23, 54545.1, 56456.44]
+var pricesWithTax = prices.map(price=>price + price * 0.20);
+undefined
+pricesWithTax;
+(4) [3603.8399999999997, 10908.276, 65454.119999999995, 67747.728]
+prices;
+(4) [3003.2, 9090.23, 54545.1, 56456.44]
+var cloneArray = prices.map(price=>price);
+undefined
+cloneArray;
+(4) [3003.2, 9090.23, 54545.1, 56456.44]
+prices;
+(4) [3003.2, 9090.23, 54545.1, 56456.44]
+prices == cloneArray;
+false
+var prices = [10,20,30,40,50,10,20];
+let sum = 0;
+for(let i = 0; i<prices.length; i++){
+    sum+=prices[i];
+}
+console.log(sum);
+VM3398:6 180
+undefined
+prices.reduce((acc,currentElement)=>acc+currentElement, acc=0);
+180
+prices;
+(7) [10, 20, 30, 40, 50, 10, 20]
+prices.reduce((acc,currentElement)=>{
+if(currentElement>20){
+acc.push(currentElement);
+}
+return acc;
+}, acc=[]);
+(3) [30, 40, 50]
+prices;
+(7) [10, 20, 30, 40, 50, 10, 20]
+prices.some(price=>price>30);
+true
+prices.some(price=>price>50);
+false
+prices.some(price=>price>10);
+true
+prices.every(price=>price>40);
+false
+prices.every(price=>price>5);
+true
+prices;
+(7) [10, 20, 30, 40, 50, 10, 20]
+prices.sort((first, second)=>first - second);
+(7) [10, 10, 20, 20, 30, 40, 50]
+prices;
+(7) [10, 10, 20, 20, 30, 40, 50]
+prices.sort((first, second)=>second - first);
+(7) [50, 40, 30, 20, 20, 10, 10]
+var names = ["ram","shyam","amit","anil","tim"];
+undefined
+"ram"-"shyam"
+NaN
+var name = "ram";
+undefined
+name.toLocaleCompare
+undefined
+name.localeCompare
+ƒ localeCompare() { [native code] }
+name.localeCompare("shyam");
+-1
+name.localeCompare("ram");
+0
+name.localeCompare("amit");
+1
+names.sort((first,second)=>first.localeCompare(second));
+(5) ["amit", "anil", "ram", "shyam", "tim"]
+names.sort((first,second)=>second.localeCompare(first));
+(5) ["tim", "shyam", "ram", "anil", "amit"]

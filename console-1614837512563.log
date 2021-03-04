@@ -1,0 +1,64 @@
+var prices = [10,20,30,40,50,10,20,10];
+
+undefined
+prices.forEach((price)=>console.log(price));
+VM192:1 10
+VM192:1 20
+VM192:1 30
+VM192:1 40
+VM192:1 50
+VM192:1 10
+VM192:1 20
+VM192:1 10
+undefined
+prices.forEach((price,index)=>console.log(price));
+VM205:1 10
+VM205:1 20
+VM205:1 30
+VM205:1 40
+VM205:1 50
+VM205:1 10
+VM205:1 20
+VM205:1 10
+undefined
+prices.forEach((price,index)=>console.log(price, index));
+VM232:1 10 0
+VM232:1 20 1
+VM232:1 30 2
+VM232:1 40 3
+VM232:1 50 4
+VM232:1 10 5
+VM232:1 20 6
+VM232:1 10 7
+undefined
+prices.forEach((price,index, arr)=>console.log(price, index, arr));
+VM266:1 10 0 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 20 1 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 30 2 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 40 3 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 50 4 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 10 5 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 20 6 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+VM266:1 10 7 (8) [10, 20, 30, 40, 50, 10, 20, 10]
+undefined
+Array.prototype.forEach
+ƒ forEach() { [native code] }
+console.dir(Array.prototype.forEach);
+VM420:1 ƒ forEach()arguments: [Exception: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    at Function.o (<anonymous>:1:83)]caller: [Exception: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    at Function.o (<anonymous>:1:83)]length: 1name: "forEach"__proto__: ƒ ()[[Scopes]]: Scopes[0]
+undefined
+var w = [10,1,90,20,2,100,4,99,17,71];
+undefined
+w.sort();
+(10) [1, 10, 100, 17, 2, 20, 4, 71, 90, 99]
+w;
+(10) [1, 10, 100, 17, 2, 20, 4, 71, 90, 99]
+w.find(ele=>ele==90);
+90
+w.find(ele=>ele==190);
+undefined
+w.find(ele=>ele==90)?"Found":"Not Found";
+"Found"
+w.find(ele=>ele==190)?"Found":"Not Found";
+"Not Found"

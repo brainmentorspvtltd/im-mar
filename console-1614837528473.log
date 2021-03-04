@@ -1,0 +1,112 @@
+var prices = [19,20,10,20,1,20];
+undefined
+prices.push(888);
+7
+prices;
+(7) [19, 20, 10, 20, 1, 20, 888]
+prices.pop();
+888
+prices;
+(6) [19, 20, 10, 20, 1, 20]0: 191: 202: 103: 204: 15: 20length: 6__proto__: Array(0)
+prices.splice(1,2);
+(2) [20, 10]
+prices;
+(4) [19, 20, 1, 20]
+var prices = [19,20,10,20,1,20];
+undefined
+prices.shift();
+19
+prices;
+(5) [20, 10, 20, 1, 20]
+prices.push(322);
+6
+prices;
+(6) [20, 10, 20, 1, 20, 322]
+prices.unshift(1111);
+7
+prices;
+(7) [1111, 20, 10, 20, 1, 20, 322]
+prices.splice(0,0,8888);
+[]
+prices;
+(8) [8888, 1111, 20, 10, 20, 1, 20, 322]
+prices.splice(2,0,7777);
+[]
+prices;
+(9) [8888, 1111, 7777, 20, 10, 20, 1, 20, 322]
+typeof Array;
+"function"
+Array.prototype;
+[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()flat: ƒ flat()flatMap: ƒ flatMap()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {copyWithin: true, entries: true, fill: true, find: true, findIndex: true, …}__proto__: Object
+typeof Array.prototype;
+"object"
+Array.prototype.insert = function(index,value){
+    this.splice(index,0,value);
+}
+ƒ (index,value){
+    this.splice(index,0,value);
+}
+prices;
+(9) [8888, 1111, 7777, 20, 10, 20, 1, 20, 322]
+prices.insert(1,4444);
+undefined
+prices;
+(10) [8888, 4444, 1111, 7777, 20, 10, 20, 1, 20, 322]
+Array.prototype.insert
+ƒ (index,value){
+    this.splice(index,0,value);
+}
+prices.splice(1,1,453545);
+[4444]
+prices;
+(10) [8888, 453545, 1111, 7777, 20, 10, 20, 1, 20, 322]
+prices;
+(10) [8888, 453545, 1111, 7777, 20, 10, 20, 1, 20, 322]
+var d = prices[0];
+undefined
+d;
+8888
+var [x,y] = prices;
+undefined
+x;
+8888
+y;
+453545
+prices;
+(10) [8888, 453545, 1111, 7777, 20, 10, 20, 1, 20, 322]
+var [x,,,y] = prices;
+undefined
+x;
+8888
+y;
+7777
+var [x,,,,y] = prices;
+undefined
+x;
+8888
+y;
+20
+var [a,b] = [100,200];
+undefined
+a;
+100
+b;
+200
+[a,b] =[b,a];
+(2) [200, 100]
+a;
+200
+b;
+100
+var obj = {id:1001, name:'Ram'};
+undefined
+var {name} = obj;
+undefined
+name;
+"Ram"
+function print({name, id}){
+    console.log(name, id);
+}
+print(obj);
+VM1712:2 Ram 1001
+undefined
