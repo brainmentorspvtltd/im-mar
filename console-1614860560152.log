@@ -1,0 +1,60 @@
+class Person{
+constructor(name, city){
+this.name = name;
+this.city = city;
+}
+print(){
+console.log(`Name ${this.name} City ${this.city}`);
+}
+}
+class Employee extends Person{
+constructor(id, salary, name, city){
+super(name, city);
+this.id = id;
+this.salary = salary;
+}
+print(){
+super.print();
+console.log(`Id is ${this.id} Salary is ${this.salary}`);
+}
+}
+undefined
+var amit = new Employee(1001, 9999,"Amit","Delhi");
+amit.print();
+VM778:7 Name Amit City Delhi
+VM778:18 Id is 1001 Salary is 9999
+undefined
+class B{
+static show(){
+console.log("I am Show ");
+}
+}
+undefined
+B.show();
+VM1020:3 I am Show 
+undefined
+Person.prototype
+{constructor: ƒ, print: ƒ}
+Person.prototype.__proto__
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+Employee.prototype
+Person {constructor: ƒ, print: ƒ}
+Employee.prototype.__proto__
+{constructor: ƒ, print: ƒ}constructor: class Personprint: ƒ print()__proto__: Object
+function A(){
+
+}
+undefined
+A.show=function(){
+console.log("A Show ");
+}
+ƒ (){
+console.log("A Show ");
+}
+A.show();
+VM1330:2 A Show 
+undefined
+hh = 1000;
+1000
+window.hh;
+1000

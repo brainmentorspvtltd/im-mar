@@ -1,0 +1,118 @@
+var myName = "Amit";// window.myName
+function whoAmI(){
+console.log("I am ",this.myName);
+}
+undefined
+window.myName;
+"Amit"
+whoAmI();// implicit bind with window object
+VM165:3 I am  Amit
+undefined
+window.whoAmI();
+VM165:3 I am  Amit
+undefined
+console.dir(whoAmI);
+VM419:1 ƒ whoAmI()arguments: nullcaller: nulllength: 0name: "whoAmI"prototype: {constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: ​[[Scopes]]: Scopes[0][[FunctionLocation]]: VM165:2[[Scopes]]: Scopes[1]
+undefined
+var obj = {myName:'Ram'};
+undefined
+whoAmI.call(obj);
+VM165:3 I am  Ram
+undefined
+whoAmI();
+VM165:3 I am  Amit
+undefined
+
+function whoAmI(age,city){
+console.log("I am ",this.myName);
+}
+undefined
+whoAmI(21,'Delhi'); // window.whoAmI(21,'Delhi');
+VM637:3 I am  Amit
+undefined
+
+function whoAmI(age,city){
+console.log("I am ",this.myName, age, city);
+}
+undefined
+whoAmI(21,'Delhi'); // window.whoAmI(21,'Delhi');
+VM789:3 I am  Amit 21 Delhi
+undefined
+whoAmI.call(obj,22,'Mumbai');
+VM789:3 I am  Ram 22 Mumbai
+undefined
+var arr = [21,'Mumbai'];
+whoAmI.apply(obj,arr);
+VM789:3 I am  Ram 21 Mumbai
+undefined
+var fn = whoAmI.bind(obj);
+undefined
+fn(22, 'Delhi');
+VM789:3 I am  Ram 22 Delhi
+undefined
+fn(22, 'Delhi');
+VM789:3 I am  Ram 22 Delhi
+undefined
+fn(22, 'Delhi');
+VM789:3 I am  Ram 22 Delhi
+undefined
+function Person(name, city){
+this.name = name;
+this.city = city;
+}
+undefined
+Person.prototype;
+{constructor: ƒ}
+Person.prototype.printPerson = function(){
+console.log(`Person Details :: Name ${this.name} City
+${this.city}`);
+}
+ƒ (){
+console.log(`Person Details :: Name ${this.name} City 
+${this.city}`);
+}
+Person.prototype;
+{printPerson: ƒ, constructor: ƒ}
+function Employee(id, salary, name, city){
+// super();
+//this = {};
+Person.call(this,name, city);
+this.id = id;
+this.salary = salary;
+
+}
+
+Employee.prototype.__proto__== Person.prototype;
+Employee.prototype.printEmployee = function(){
+this.printPerson();
+console.log(`Employee Details :: Id is ${this.id} Name is ${this.salary}`);
+}
+
+var amit = new Employee(1010, 9999,'Amit','Delhi');
+amit.printEmployee();
+VM2178:12 Uncaught TypeError: this.printPerson is not a function
+    at Employee.printEmployee (<anonymous>:12:6)
+    at <anonymous>:17:6
+Employee.printEmployee @ VM2178:12
+(anonymous) @ VM2178:17
+function Employee(id, salary, name, city){
+// super();
+//this = {};
+Person.call(this,name, city);
+this.id = id;
+this.salary = salary;
+
+}
+
+Employee.prototype.__proto__== Person.prototype;
+Employee.prototype.printEmployee = function(){
+Person.prototype.printPerson.call(this);
+console.log(`Employee Details :: Id is ${this.id} Name is ${this.salary}`);
+}
+
+var amit = new Employee(1010, 9999,'Amit','Delhi');
+amit.printEmployee();
+VM1421:2 Person Details :: Name Amit City 
+Delhi
+VM2235:13 Employee Details :: Id is 1010 Name is 9999
+undefined

@@ -1,0 +1,422 @@
+console.log("Sync Code Start");
+
+console.log("Sync Code Ends ");
+VM254:1 Sync Code Start
+VM254:3 Sync Code Ends 
+undefined
+console.log("Sync Code Start");
+
+console.log("Sync Code Ends ");
+VM257:1 Sync Code Start
+VM257:3 Sync Code Ends 
+undefined
+console.log("Sync Code Start");
+setTimeout(()=>{
+console.log("I am a Async Code ")
+},5000);
+console.log("Sync Code Ends ");
+VM360:1 Sync Code Start
+VM360:5 Sync Code Ends 
+undefined
+VM360:3 I am a Async Code 
+console.log("Sync Code Start");
+var e = doWork();
+console.log("Sync Code Ends ",e);
+function doWork(){
+setTimeout(()=>{
+console.log("I am a Async Code ");
+return "I am Back ";
+},5000);
+// return undefined;
+}
+VM498:1 Sync Code Start
+VM498:3 Sync Code Ends  undefined
+undefined
+VM498:6 I am a Async Code 
+function callBack(data){
+console.log('Call Back ',data);
+}
+console.log("Sync Code Start");
+//var e = doWork();
+doWork(callBack);
+console.log("Sync Code Ends ");
+//console.log("Sync Code Ends ",e);
+function doWork(fn){
+setTimeout(()=>{
+console.log("I am a Async Code ");
+fn("I am Back ");
+//return "I am Back ";
+},5000);
+// return undefined;
+}
+VM636:4 Sync Code Start
+VM636:7 Sync Code Ends 
+undefined
+VM636:11 I am a Async Code 
+VM636:2 Call Back  I am Back 
+function callBack(data){
+console.log('Call Back ',data);
+}
+function fail(err){
+    console.log(err);
+}
+console.log("Sync Code Start");
+//var e = doWork();
+doWork(callBack, fail);
+// try{
+// doWork(callBack);
+// }
+// catch(e){
+//     console.log(e);
+// }
+console.log("Sync Code Ends ");
+//console.log("Sync Code Ends ",e);
+function doWork(fn, fn2){
+setTimeout(()=>{
+console.log("I am a Async Code ");
+//fn("I am Back ");
+fn2("Failed... ");
+//return "I am Back ";
+},5000);
+// return undefined;
+}
+VM824:7 Sync Code Start
+VM824:16 Sync Code Ends 
+undefined
+VM824:20 I am a Async Code 
+VM824:5 Failed... 
+function callBack(data){
+console.log('Call Back ',data);
+}
+function fail(err){
+    console.log(err);
+}
+console.log("Sync Code Start");
+//var e = doWork();
+var p = doWork();
+p.then(data=>console.log("Data is ",data)).catch(err=>console.log(err));
+// try{
+// doWork(callBack);
+// }
+// catch(e){
+//     console.log(e);
+// }
+console.log("Sync Code Ends ",p);
+//console.log("Sync Code Ends ",e);
+function doWork(){
+var promise = new Promise((resolve, reject)=>{
+
+setTimeout(()=>{
+console.log("I am a Async Code ");
+//fn("I am Back ");
+resolve("Resolved Happen....");
+//return "I am Back ";
+},5000);
+});
+
+// return undefined;
+return promise;
+}
+VM1172:7 Sync Code Start
+VM1172:17 Sync Code Ends  Promise {<pending>}
+undefined
+VM1172:23 I am a Async Code 
+VM1172:10 Data is  Resolved Happen....
+p;
+Promise {<fulfilled>: "Resolved Happen...."}
+function callBack(data){
+console.log('Call Back ',data);
+}
+function fail(err){
+    console.log(err);
+}
+console.log("Sync Code Start");
+//var e = doWork();
+var p = doWork();
+p.then(data=>console.log("Data is ",data)).catch(err=>console.log(err));
+// try{
+// doWork(callBack);
+// }
+// catch(e){
+//     console.log(e);
+// }
+console.log("Sync Code Ends ",p);
+//console.log("Sync Code Ends ",e);
+function doWork(){
+var promise = new Promise((resolve, reject)=>{
+
+setTimeout(()=>{
+console.log("I am a Async Code ");
+//fn("I am Back ");
+reject("Reject Happen....");
+//return "I am Back ";
+},5000);
+});
+
+// return undefined;
+return promise;
+}
+VM1240:7 Sync Code Start
+VM1240:17 Sync Code Ends  Promise {<pending>}
+undefined
+VM1240:23 I am a Async Code 
+VM1240:10 Reject Happen....
+p;
+Promise {<rejected>: "Reject Happen...."}
+function cube(num,time){
+var pr = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        resolve(num**3);
+},time);
+});
+return pr;
+}
+undefined
+var pr = Promise.all([cube(3,4000), cube(5,5000), cube(4,9000)];
+VM1598:1 Uncaught SyntaxError: missing ) after argument list
+var pr = Promise.all([cube(3,4000), cube(5,5000), cube(4,9000)]);
+pr.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1784:2 (3) [27, 125, 64]
+function cube(num,time){
+console.log('Num ',num)
+var pr = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(num==5){
+        reject("Reject Due to 5 ");
+}
+        resolve(num**3);
+},time);
+});
+return pr;
+}
+undefined
+var pr = Promise.all([cube(3,4000), cube(5,5000), cube(4,9000)]);
+pr.then(data=>console.log(data)).catch(err=>console.log(err));
+VM1879:2 Num  3
+VM1879:2 Num  5
+VM1879:2 Num  4
+Promise {<pending>}
+VM1883:2 Reject Due to 5 
+var pr = Promise.allSettled([cube(3,4000), cube(5,5000), cube(4,9000)]);
+pr.then(data=>console.log(data)).catch(err=>console.log(err));
+VM1879:2 Num  3
+VM1879:2 Num  5
+VM1879:2 Num  4
+Promise {<pending>}
+VM1894:2 (3) [{…}, {…}, {…}]0: {status: "fulfilled", value: 27}1: {status: "rejected", reason: "Reject Due to 5 "}2: {status: "fulfilled", value: 64}length: 3__proto__: Array(0)
+var pr = Promise.race([[cube(3,4000), cube(5,5000), cube(4,9000)]])
+pr.then(data=>console.log(data)).catch(err=>console.log(err));
+VM1879:2 Num  3
+VM1879:2 Num  5
+VM1879:2 Num  4
+VM2184:2 (3) [Promise, Promise, Promise]
+Promise {<fulfilled>: undefined}__proto__: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: undefined
+VM1879:6 Uncaught (in promise) Reject Due to 5 
+(anonymous) @ VM1879:6
+setTimeout (async)
+(anonymous) @ VM1879:4
+cube @ VM1879:3
+(anonymous) @ VM2184:1
+var pr = Promise.race([[cube(3,4000), cube(5,5000), cube(4,9000)]])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM1879:2 Num  3
+VM1879:2 Num  5
+VM1879:2 Num  4
+VM2226:2 Data is  (3) [Promise, Promise, Promise]
+Promise {<fulfilled>: undefined}
+VM1879:6 Uncaught (in promise) Reject Due to 5 
+(anonymous) @ VM1879:6
+setTimeout (async)
+(anonymous) @ VM1879:4
+cube @ VM1879:3
+(anonymous) @ VM2226:1
+function cube(num,time){
+console.log('Num ',num)
+var pr = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(num==15){
+        reject("Reject Due to 5 ");
+}
+        resolve(num**3);
+},time);
+});
+return pr;
+}
+undefined
+var pr = Promise.race([[cube(3,4000), cube(5,5000), cube(4,9000)]])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2238:2 Num  3
+VM2238:2 Num  5
+VM2238:2 Num  4
+VM2242:2 Data is  (3) [Promise, Promise, Promise]0: Promise {<fulfilled>: 27}1: Promise {<fulfilled>: 125}2: Promise {<pending>}length: 3__proto__: Array(0)
+Promise {<fulfilled>: undefined}
+var pr = Promise.race([[cube(3,4000), cube(5,5000), cube(4,9000)]])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2238:2 Num  3
+VM2238:2 Num  5
+VM2238:2 Num  4
+VM2246:2 Data is  (3) [Promise, Promise, Promise]
+Promise {<fulfilled>: undefined}
+var pr = Promise.race([[cube(3,4000), cube(5,5000), cube(4,9000)]])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2238:2 Num  3
+VM2238:2 Num  5
+VM2238:2 Num  4
+VM2249:2 Data is  (3) [Promise, Promise, Promise]
+Promise {<fulfilled>: undefined}
+function cube(num,time){
+console.log('Num ',num)
+var pr = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(num==15){
+        reject("Reject Due to 5 ");
+}
+        resolve(num**3);
+},time);
+});
+return pr;
+}
+undefined
+var pr = Promise.race([cube(3,4000), cube(5,5000), cube(4,9000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2253:2 Num  3
+VM2253:2 Num  5
+VM2253:2 Num  4
+Promise {<pending>}
+VM2264:2 Data is  27
+function cube(num,time){
+console.log('Num ',num)
+var pr = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(num==5){
+        reject("Reject Due to 5 ");
+}
+        resolve(num**3);
+},time);
+});
+return pr;
+}
+undefined
+var pr = Promise.race([cube(3,4000), cube(5,5000), cube(4,9000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2271:2 Num  3
+VM2271:2 Num  5
+VM2271:2 Num  4
+Promise {<pending>}
+VM2275:2 Data is  27
+var pr = Promise.race([cube(3,4000), cube(5,5000), cube(4,9000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2271:2 Num  3
+VM2271:2 Num  5
+VM2271:2 Num  4
+Promise {<pending>}
+VM2278:2 Data is  27
+var pr = Promise.race([cube(3,4000), cube(5,2000), cube(4,9000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2271:2 Num  3
+VM2271:2 Num  5
+VM2271:2 Num  4
+Promise {<pending>}
+VM2287:2 Error is  Reject Due to 5 
+var pr = Promise.race([cube(3,1000), cube(5,2000), cube(4,1000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2271:2 Num  3
+VM2271:2 Num  5
+VM2271:2 Num  4
+Promise {<pending>}
+VM2301:2 Data is  27
+var pr = Promise.race([cube(3,1000), cube(5,2000), cube(4,1000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2271:2 Num  3
+VM2271:2 Num  5
+VM2271:2 Num  4
+Promise {<pending>}
+VM2305:2 Data is  27
+var pr = Promise.race([cube(3,2000), cube(5,2000), cube(4,1000)])
+pr.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+VM2271:2 Num  3
+VM2271:2 Num  5
+VM2271:2 Num  4
+Promise {<pending>}
+VM2315:2 Data is  64
+async function total(){
+let result = await cube(3,2000) + await cube(2, 1000) + await cube(4,4000);
+console.log(result);
+
+}
+undefined
+total();
+VM2271:2 Num  3
+Promise {<pending>}
+VM2271:2 Num  2
+VM2271:2 Num  4
+VM2510:3 99
+async function total(){
+let result = await cube(3,2000) + await cube(2, 3000) + await cube(4,4000);
+console.log(result);
+
+}
+undefined
+total();
+VM2271:2 Num  3
+Promise {<pending>}__proto__: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: undefined
+VM2271:2 Num  2
+VM2271:2 Num  4
+VM2542:3 99
+async function total(){
+let result = await cube(3,2000) + await cube(2, 3000) + await cube(4,4000);
+console.log(result);
+return result; // new Promise (Wrapped inside the promise)
+}
+undefined
+var f = total();
+VM2271:2 Num  3
+undefined
+f;
+Promise {<pending>}
+VM2271:2 Num  2
+f;
+Promise {<pending>}
+VM2271:2 Num  4
+f;
+Promise {<pending>}
+VM2627:3 99
+f;
+Promise {<fulfilled>: 99}
+async function total(){
+let result = await cube(3,2000) + await cube(5, 3000) + await cube(4,4000);
+console.log(result);
+return result; // new Promise (Wrapped inside the promise)
+}
+undefined
+var f = total();
+VM2271:2 Num  3
+undefined
+VM2271:2 Num  5
+VM2706:4 Uncaught (in promise) Reject Due to 5 
+total @ VM2706:4
+async function (async)
+total @ VM2706:2
+(anonymous) @ VM2714:1
+async function total(){
+let result = 0;
+try{
+ result = await cube(3,2000) + await cube(5, 3000) + await cube(4,4000);
+console.log(result);
+}
+catch(err){
+    console.log('Error in total ',err);
+}
+
+
+return result; // new Promise (Wrapped inside the promise)
+}
+undefined
+var f = total();
+VM2271:2 Num  3
+undefined
+VM2271:2 Num  5
+VM2843:8 Error in total  Reject Due to 5 
+f;
+Promise {<fulfilled>: 0}
