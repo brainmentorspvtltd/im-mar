@@ -1,0 +1,43 @@
+var myName = 'Amit';
+function whoAmI(){
+console.log('I am ',this.myName);
+}
+undefined
+window;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+this;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+window == this;
+true
+window.myName;
+"Amit"
+whoAmI();// window.whoAmI();
+VM159:3 I am  Amit
+undefined
+var w = new whoAmI();
+VM159:3 I am  undefined
+undefined
+w;
+whoAmI {}
+var myName = 'Amit';
+function whoAmI(){
+console.log('I am ',this);
+}
+undefined
+window.whoAmI();
+VM459:3 I am  Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+var w = new whoAmI();
+VM459:3 I am  whoAmI {}
+undefined
+whoAmI
+ƒ whoAmI(){
+console.log('I am ',this);
+}
+var obj = {};
+undefined
+obj;
+{}__proto__: Object
+console.dir(whoAmI);
+VM625:1 ƒ whoAmI()arguments: nullcaller: nulllength: 0name: "whoAmI"prototype: {constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM459:2[[Scopes]]: Scopes[1]
+undefined

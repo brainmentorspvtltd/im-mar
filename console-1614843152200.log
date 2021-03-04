@@ -1,0 +1,225 @@
+var obj = {};
+undefined
+obj;
+{}__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+obj instanceof Object;
+true
+typeof Object;
+"function"
+Object;
+ƒ Object() { [native code] }
+obj.__proto__;
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+Object
+ƒ Object() { [native code] }
+Object.prototype
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+typeof Object.prototype;
+"object"
+obj.__proto__ == Object.prototype;
+true
+Object
+ƒ Object() { [native code] }
+Object.prototype;
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+obj.__proto__ == Object.prototype;
+true
+Object.prototype.constructor;
+ƒ Object() { [native code] }
+obj;
+{}
+obj.id = 1001;
+1001
+obj.name = "Ram";
+"Ram"
+obj;
+{id: 1001, name: "Ram"}
+obj["city"] ="Delhi";
+"Delhi"
+obj;
+{id: 1001, name: "Ram", city: "Delhi"}
+delete obj.id;
+true
+obj;
+{name: "Ram", city: "Delhi"}city: "Delhi"name: "Ram"__proto__: Object
+var math = {
+sin(){ //sin:function(){}
+    console.log('Sin');
+},
+cos:function(){
+    console.log("Cos ");
+}
+/*cos(){
+    console.log('Cos');
+}*/
+}
+undefined
+math.sin();
+VM803:3 Sin
+undefined
+math.cos();
+VM803:6 Cos 
+undefined
+sin();
+VM882:1 Uncaught ReferenceError: sin is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM882:1
+function createEmployee(id , name, salary){
+var emp = {};
+emp.id = id;
+emp.name = name;
+emp.salary = salary;
+return emp;
+}
+undefined
+var ram = createEmployee(1001, "Ram",3333);
+undefined
+ram;
+{id: 1001, name: "Ram", salary: 3333}id: 1001name: "Ram"salary: 3333__proto__: Object
+var amit = createEmployee(1002, "Amit",1111);
+undefined
+amit;
+{id: 1002, name: "Amit", salary: 1111}
+function createOrder(){
+var order = {}; // Object
+}
+undefined
+// Function Constructor
+function Employee(id , name, salary){
+//var this = Employee (amit) reference;
+console.log(this);
+this.id = id;
+this.name = name;
+this.salary = salary;
+console.log(this);
+// return this;
+//return emp;
+}
+var amit = new Employee(1001, "Amit",1111);
+VM1601:4 Employee {}id: 1001name: "Amit"salary: 1111__proto__: Object
+VM1601:8 Employee {id: 1001, name: "Amit", salary: 1111}id: 1001name: "Amit"salary: 1111__proto__: constructor: ƒ Employee(id , name, salary)__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+undefined
+amit instanceof Employee;
+true
+amit instanceof Object;
+true
+amit.__proto__ == Employee.prototype;
+true
+typeof Employee;
+"function"
+Employee.prototype;
+{constructor: ƒ}
+typeof Employee.prototype;
+"object"
+Employee == Employee.prototype.constructor;
+true
+amit.__proto__.__proto__==Object.prototype;
+true
+amit.__proto__== Employee.prototype
+true
+console.dir(Employee);
+VM2085:1 ƒ Employee(id , name, salary)arguments: nullcaller: nulllength: 3name: "Employee"prototype: {constructor: ƒ}constructor: ƒ Employee(id , name, salary)__proto__: Object__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM1601:2[[Scopes]]: Scopes[1]
+undefined
+var ram =new Employee(1001, "Ram",34432);
+VM1601:4 Employee {}
+VM1601:8 Employee {id: 1001, name: "Ram", salary: 34432}
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 34432}id: 1001name: "Ram"salary: 34432__proto__: Object
+var amit = new Employee(1002,"Amit",53454);
+VM1601:4 Employee {}
+VM1601:8 Employee {id: 1002, name: "Amit", salary: 53454}
+undefined
+amit;
+Employee {id: 1002, name: "Amit", salary: 53454}id: 1002name: "Amit"salary: 53454__proto__: Object
+ram.__proto__ == Employee.prototype;
+true
+amit.__proto__ == Employee.prototype;
+true
+ram.__proto__ == amit.__proto__;
+true
+ram.salary++;
+34432
+ram
+Employee {id: 1001, name: "Ram", salary: 34433}
+amit;
+Employee {id: 1002, name: "Amit", salary: 53454}
+amit.salary= amit.salary + 1000;
+54454
+amit;
+Employee {id: 1002, name: "Amit", salary: 54454}
+ram;
+Employee {id: 1001, name: "Ram", salary: 34433}
+Employee.prototype.companyName = "SkillRisers";
+"SkillRisers"
+ram;
+Employee {id: 1001, name: "Ram", salary: 34433}id: 1001name: "Ram"salary: 34433__proto__: companyName: "SkillRisers"constructor: ƒ Employee(id , name, salary)__proto__: Object
+amit;
+Employee {id: 1002, name: "Amit", salary: 54454}id: 1002name: "Amit"salary: 54454__proto__: ObjectcompanyName: "SkillRisers"constructor: ƒ Employee(id , name, salary)__proto__: Object
+amit.companyName;
+"SkillRisers"
+ram.companyName;
+"SkillRisers"
+// Function Constructor
+function Employee(id , name, salary){
+//var this = Employee (amit) reference;
+console.log(this);
+this.id = id;
+this.name = name;
+this.salary = salary;
+/*this.print = function(){
+
+}*/
+console.log(this);
+// return this;
+//return emp;
+}
+Employee.prototype.print = function(){
+console.log(`Id is ${this.id} Name is ${this.name} Salary is ${this.salary}`);
+}
+var amit = new Employee(1001, "Amit",1111);
+VM3067:4 Employee {}
+VM3067:11 Employee {id: 1001, name: "Amit", salary: 1111}
+ƒ (){
+console.log(`Id is ${this.id} Name is ${this.name} Salary is ${this.salary}`);
+}
+amit;
+Employee {id: 1001, name: "Amit", salary: 1111}id: 1001name: "Amit"salary: 1111__proto__: print: ƒ ()constructor: ƒ Employee(id , name, salary)__proto__: Object
+amit.print();
+VM3067:16 Id is 1001 Name is Amit Salary is 1111
+undefined
+amit.toString();
+"[object Object]"
+Object.prototype.toString
+ƒ toString() { [native code] }
+amit.work();
+VM3233:1 Uncaught TypeError: amit.work is not a function
+    at <anonymous>:1:6
+(anonymous) @ VM3233:1
+amit.__proto__;
+{print: ƒ, constructor: ƒ}
+amit.__proto__.__proto__;
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+amit.__proto__.__proto__.__proto__;
+null
+Employee;
+ƒ Employee(id , name, salary){
+//var this = Employee (amit) reference;
+console.log(this);
+this.id = id;
+this.name = name;
+this.salary = salary;
+/*this.print = function(){
+
+}*/
+console.log(this);
+// ret…
+console.dir(Employee);
+VM3407:1 ƒ Employee(id , name, salary)arguments: nullcaller: nulllength: 3name: "Employee"prototype: {print: ƒ, constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM3067:2[[Scopes]]: Scopes[1]
+undefined
+Employee.__proto__
+ƒ () { [native code] }
+typeof Employee.__proto__;
+"function"
+amit.id;
+1001
