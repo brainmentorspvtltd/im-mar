@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Canvas Demo</h1>
+
+    <canvas id="canvas" width="400" height="400">
+        <p>Your browser do not support Canvas</p>
+    </canvas>
+    
+    <script>
+        var canvas = document.querySelector("#canvas");
+        var context = canvas.getContext("2d");
+        // context.fillStyle = 'rgb(255,0,0)';
+        // x,y,w,h
+        // context.fillRect(100,10,200,200);
+        // context.fillStyle = 'rgba(25,100,100,0.5)';
+        // context.fillRect(150,50,200,200);
+
+        context.fillStyle = 'rgb(255,100,100)';
+        context.fillRect(25,25,250,250);
+        context.clearRect(100,100,50,50);
+    </script>
+</body>
+</html>

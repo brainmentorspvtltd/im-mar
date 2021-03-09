@@ -58,8 +58,10 @@ a {
 }
 
 #sidebar_1 .wrapper {
-    margin-bottom: 20px;
+    margin-top: 200px;
     padding: 10px;
+    position: sticky;
+    top: 100px;
 }
 #sidebar_1 h2 {
     border-bottom: 1px solid blue;

@@ -5,35 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        /* * - universal selector */
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-        h1 {
-            margin-bottom: 40px;
-        }
-        ul {
-            list-style: none;
-            margin-left: 10px;
-        }
-        ul li {
-            display: inline-block;
-            width: 16%;
-            background-color: darkblue;
-            text-align: center;
-        }
-        ul li a {
-            text-decoration: none;
-            color: white;
-            display: block;
-            padding: 10px;
-        }
-        ul li:hover {
-            background-color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
 
@@ -43,26 +15,68 @@
     ul - unordered list
     dl - description list -->
 
-    <ul>
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">Sport</a>
-        </li>
-        <li>
-            <a href="#">Electronics</a>
-        </li>
-        <li>
-            <a href="#">Men</a>
-        </li>
-        <li>
-            <a href="#">Women</a>
-        </li>
-        <li>
-            <a href="#">More</a>
-        </li>
-    </ul>
+    <nav id="main-nav">
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">Sport</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li>
+                            <a href="#">Cricket</a>
+                        </li>
+                        <li>
+                            <a href="#">Chess</a>
+                        </li>
+                        <li>
+                            <a href="#">Football</a>
+                        </li>
+                        <li>
+                            <a href="#">Hockey</a>
+                        </li>
+                        <li>
+                            <a href="#">Tennis</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Electronics</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li>
+                            <a href="#">Mobile</a>
+                        </li>
+                        <li>
+                            <a href="#">TV</a>
+                        </li>
+                        <li>
+                            <a href="#">Laptop</a>
+                        </li>
+                        <li>
+                            <a href="#">Tabs</a>
+                        </li>
+                        <li>
+                            <a href="#">More</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Men</a>
+            </li>
+            <li>
+                <a href="#">Women</a>
+            </li>
+            <li>
+                <a href="#">More</a>
+            </li>
+        </ul>
+    </nav>
+
+    <img src="https://www.insidesport.co/wp-content/uploads/2020/08/sachin-tendulkar-1556110391.jpg" alt="">
     
 </body>
 </html>
