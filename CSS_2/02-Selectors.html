@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent_1 {
+            background-color: lightgray;
+        }
+        #parent_2 {
+            background-color: lightsalmon;
+        }
+        #parent_1 h2 {
+            color: red;
+        }
+
+        /* .section h2 {
+            color: green;
+        } */
+        .section {
+            border: 2px solid red;
+        }
+
+        .section_2{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Selectors</h1>
+
+    <!-- Id and Class -->
+    <!-- id - identity - header, footer, navigations, sections, banner
+        - it is represented by #
+        - id is always unique
+        - we cannot assign same id to 2 different elements
+        - an element cannot have more than 1 id
+     -->
+    <!-- class - grouping
+        - it is represented by .
+        - it is used for grouping of elements
+        - we can assign same class to any number of elements
+        - an element can have any number of classes
+     -->
+    
+    <div id="parent_1" class="section">
+        <h2>This is heading_1</h2>
+    </div>
+
+    <hr>
+
+    <div id="parent_2" class="section">
+        <h2>This is also heading_1 but inside parent_2</h2>
+    </div>
+
+    <hr>
+
+    <div class="section section_1">
+        <h2>This is a heading</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, architecto repellat eaque cum rem nisi debitis sequi et adipisci quaerat, placeat vel velit pariatur enim non porro maiores nam aliquid?
+        </p>
+    </div>
+
+    <div class="section section_2">
+        <h2>This is a heading</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptatibus nisi quasi iste magnam blanditiis a, nihil laudantium rerum assumenda, vel facilis hic provident natus nobis ab sapiente harum. Culpa.
+        </p>
+    </div>
+
+    <div class="section section_3">
+        <h2>This is a heading</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatum ut illum pariatur, vitae minima quaerat eius suscipit dolor! Id quisquam eum fugit vitae expedita praesentium ab, corporis molestias ad.
+        </p>
+    </div>
+
+</body>
+</html>
